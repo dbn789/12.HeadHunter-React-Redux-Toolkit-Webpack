@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    /*  color */
+
+    --black: #140f07;
+    --blue: #102f51;
+    --blue-light: #0971b4;
+    --beide: hsl(49, 16%, 87%);
+    /*  font */
+    --family: sans-serif;
+    --fs-base: 16px;
+    --fs-header: 20px;
+    --fs-price: 22px;
+    --weight-normal: 400;
+    --weight-bold: 600;
+    /*  border-radius */
+    --radius: 0.75rem;
+}
+
+.job {
+    position: relative;
+    font-family: var(--family);
+    background-color: var(--blue);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    color: var(--beide);
+}
+.job:hover {
+    border: 0.1rem solid #0971b4;
+    cursor: pointer;
+}
+.job-found {
+    border: 0.1rem solid #0efff9;
+}
+.job-found:hover {
+    border: 0.3rem solid #0efff9;
+}
+.job__header {
+    height: 35%;
+    font-weight: var(--weight-bold);
+    font-size: var(--fs-header);
+}
+.job__price {
+    padding-top: 0.5rem;
+    font-size: var(--fs-price);
+}
+.job__tail {
+    height: 40%;
+    padding-bottom: 0.4rem;
+    font-size: var(--fs-base);
+}
+.job > table {
+    position: absolute;
+    background-color: #102f51;
+    left: 50%;
+    top: 0;
+    z-index: 1;
+    color: coral;
+}
