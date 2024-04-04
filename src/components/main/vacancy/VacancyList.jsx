@@ -1,30 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { parseVacancy } from '../../../reducers/hhReduser';
+import React from 'react';
+import { useSelector } from 'react-redux';
+
 import Vacancy from './Vacancy';
 import '../main.css';
 
 const VacancyList = ({ vacancyPage }) => {
-    const [count, setCount] = useState(0);
-    const dispatch = useDispatch();
-
     const start = (vacancyPage - 1) * 20;
     const end = start + 20;
 
-    const vacancies = useSelector((state) => {
-        const temp = state.hhReducer.vacancies;
-        console.log('STATE', state);
-        return temp.slice(start, end);
-    });
-
-    //console.log(vacancies[count]);
-
-    useEffect(() => {
-        dispatch(parseVacancy(vacancies[count]));
-    }, [count]);
-
-    console.log(vacancies[count].load);
-    if (vacancies[count].load && count < 19) setCount(count + 1);
+    const state = useSelector((state) => state.hhReducer);
+    const allVacancies = state.vacancies;
+    const vacancies = allVacancies.slice(start, end);
 
     return (
         <div className="container">
